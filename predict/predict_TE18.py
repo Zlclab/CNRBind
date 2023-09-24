@@ -36,7 +36,7 @@ for i in range(len(sequence)):
     myseq = sequence[i]
     one_mers.append(Kmers_funct(myseq, size=1))
 
-all_residues=[]#########A long list for all residues
+all_residues=[]#########A long list for all amino acids
 for i in range(len(one_mers)):
     all_residues.extend(one_mers[i])
 
