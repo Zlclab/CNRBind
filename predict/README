@@ -1,11 +1,10 @@
 A prediction method by fusing RNA sequence and structure information to identify small molecule-RNA binding sites. 
-The  codes for PCN_RNAsite and an example from dataset CS71 are available in ./src. And the demo and corresponding documentation files can be found in ./demo. See our paper for more details.
+Testing each RNA takes approximately 20 seconds
+Test the model on TE18 (~6min)
+cd ./predict/
+python predict_TE18.py  
 
+Test the model on RB9 (~3min)
+cd ./predict/
+python predict_RB9.py  
 
-Requirements
-python 3.8.8
-numpy 1.23.5
-scikit-learn 1.2.2
-pandas 3.1.0
-
-Kang Xiao: xiaokangneuq@163.com
