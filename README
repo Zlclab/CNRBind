@@ -8,7 +8,7 @@ numpy 1.23.5
 scikit-learn 1.2.2
 pandas 3.1.0
 
-Testing each RNA takes approximately 10 seconds
+Testing each RNA takes approximately 10 seconds, depending on the sequence length
 
 Test the model on TE18 (~3min)
 cd ./predict/
