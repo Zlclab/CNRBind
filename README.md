@@ -6,7 +6,7 @@ The codes for CNRBind are available in ./src.
 The demo and corresponding documentation files can be found in ./demo. 
 See our paper for more details.
 
-Testing each RNA takes approximately 10 seconds, depending on the sequence length
+Testing each RNA takes approximately 10 seconds, depending on the sequence length.
 
 ## Test the model on TE18 (~3min)
 cd ./predict/
