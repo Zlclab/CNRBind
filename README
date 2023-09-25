@@ -1,5 +1,7 @@
 A prediction method by fusing RNA sequence and structure information to identify small molecule-RNA binding sites. 
-The data and the labels in this study are available in ./data_cashe. The codes for CNRBind are available in ./src. And the demo and corresponding documentation files can be found in ./demo. See our paper for more details.
+The RNA id, sequence and labels are available in ./data_cashe. The PDB files of RNAs are availavle in ./PDB. 
+The codes for CNRBind are available in ./src. And the demo and corresponding documentation files can be found in ./demo. 
+See our paper for more details.
 
 Testing each RNA takes approximately 10 seconds, depending on the sequence length
 
