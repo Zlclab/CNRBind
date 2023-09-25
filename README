@@ -1,4 +1,5 @@
-# CNRBind
+FADsite
+## CNRBind
 A prediction method by fusing RNA sequence and structure information to identify small molecule-RNA binding sites. 
 The RNA id, sequence and labels are available in ./data_cashe. 
 The PDB files of RNAs are availavle in ./pdb. 
