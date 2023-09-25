@@ -1,20 +1,20 @@
-# FADsite
-A novel fusion technology utilizing complex network and sequence information for FAD-binding site identification.
+# CNRBind
+A prediction method by fusing RNA sequence and structure information to identify small molecule-RNA binding sites. 
+The RNA id, sequence and labels are available in ./data_cashe. 
+The PDB files of RNAs are availavle in ./pdb. 
+The codes for CNRBind are available in ./src. 
+The demo and corresponding documentation files can be found in ./demo. 
+See our paper for more details.
 
-The protein id, sequence and labels are available in ./dataset. The PDB files of proteins are availavle in ./pdb. The codes for CNRBind are available in ./src. The demo and corresponding documentation files can be found in ./demo. See our paper for more details.
+Testing each RNA takes approximately 10 seconds, depending on the sequence length
 
-Testing each proteins takes approximately 1 minute, depending on the sequence length
+## Test the model on TE18 (~3min)
+cd ./predict/
+python predict_TE18.py  
 
-# Test the FADsite_seq
-cd ./src/
-python FADsite_seq.py  
+## Test the model on RB9 (~3min)
+cd ./predict/
+python predict_RB9.py  
 
-# Test the FADsite on test4 (~4min)
-cd ./src/
-python FADsite_test4.py  
-
-# Test the FADsite on test6 (~6min)
-cd ./src/
-python FADsite_test6.py  
 
 Kang Xiao: xiaokangneuq@163.com
