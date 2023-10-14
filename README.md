@@ -9,6 +9,7 @@ See our paper for more details.
 Testing each RNA takes approximately 10 seconds, depending on the sequence length.
 
 ## Test the model on TE18 (~3min)
+`<hello world>` 
 '<cd ./predict/>'
 python predict_TE18.py  
 
