@@ -10,7 +10,7 @@ The RNA id, sequence and labels can be found in ./data_cache/, the codes for RLB
 cd ./predict/
 python predict_TE18.py
 ```
-### Re-training your own model for the new dataset
+### Test the model on RB9 (~3min)
 ```bash
 cd ./predict/
 python predict_RB9.py
