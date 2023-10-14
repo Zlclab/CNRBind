@@ -4,6 +4,8 @@ A prediction method by fusing RNA sequence and structure information to identify
 
 The RNA id, sequence and labels can be found in ./data_cache/, the codes for RLBind are available in ./predict. In addition, the demo and corresponding documentation files can be found in ./demo.
 
+Testing each RNA takes approximately 10 seconds, depending on the sequence length.
+
 ### Test the model on TE18 (~3min)
 
 ```bash
