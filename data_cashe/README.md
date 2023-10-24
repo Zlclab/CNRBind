@@ -1,4 +1,5 @@
-# CNRBind
+# There are three lines for each sample.
 
-## Test the model on TE18 (~3min)
-
+# The first line is RNA ID
+# The second line is the chain sequence
+# The third line is the enriched binding annotation: 1=binding, 0=non-binding
