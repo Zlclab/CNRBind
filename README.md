@@ -10,12 +10,12 @@ Testing each RNA takes approximately 10 seconds, depending on the sequence lengt
 
 ```bash
 cd ./predict/
-python predict_TE18.py
+python predict.py TE18
 ```
 ### Test the model on RB9 (~3min)
 ```bash
 cd ./predict/
-python predict_RB9.py
+python predict.py RB9
 ```
 ### contact
 Kang Xiao: xiaokangneuq@163.com
