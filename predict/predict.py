@@ -355,6 +355,3 @@ print('Pre:',metrics.precision_score(test_label,resample_pred))
 print("Sn:",metrics.recall_score(test_label,resample_pred))
 print("AUC:",metrics.roc_auc_score(test_label,y_score))
 print('MCC:',matthews_corrcoef(test_label,resample_pred))    
-
-df = pd.DataFrame(resample_pred )
-df.to_csv("resample_pred .csv", index=False)
