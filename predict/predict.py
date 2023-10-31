@@ -174,6 +174,7 @@ for n in range(len(name)):
             y.append(float(list[7]))
             z.append(float(list[8]))
     number_of_atom = len(x)
+#计算子代的degree
     number_of_aminoacid = 1
     Rev_NO_aminoacid = [1]*number_of_atom
     for i in range(2,len(x)):
@@ -193,19 +194,19 @@ for n in range(len(name)):
                 if d_ij <= 8 :
                     contact[Rev_NO_aminoacid[i]-1][Rev_NO_aminoacid[j]-1] = 1
     G=nx.Graph(contact)
-###################################calculate DG
+#度中心性
     degree = []
     degree.extend(nx.degree_centrality(G).values())
 
-###################################calculate CL
+#接近中心性
     closeness = []
     closeness.extend(nx.closeness_centrality(G).values())
 
-###################################calculate BC
+#节点介数中心性
     betweenness = []
     betweenness.extend(nx.betweenness_centrality(G).values())
 
-###################################Find the adjacent nodes of each site
+#计算子代的位点
     son_of_site = []
     for i in range(len(contact)):
         site = []
@@ -214,29 +215,18 @@ for n in range(len(name)):
                 site.append(j+1)
         son_of_site.append(site)
     
-#calculate DG & CL & BC for adjacent nodes 
+#计算子代的degree & closeness
     a1 = []
     a2 = []
     a3 = []
     for i in range(len(son_of_site)):
-        b1 = []
-        b2 = []
-        b3 = []
-        for j in range(len(son_of_site[i])):
-            b1.append(degree[son_of_site[i][j]-1])
-            b2.append(closeness[son_of_site[i][j]-1])
-            b3.append(betweenness[son_of_site[i][j]-1])
+        b1 = [degree[son_of_site[i][j]-1] for j in range(len(son_of_site[i]))]
+        b2 = [closeness[son_of_site[i][j]-1] for j in range(len(son_of_site[i]))]
+        b3 = [betweenness[son_of_site[i][j]-1] for j in range(len(son_of_site[i]))]
         a1.append(b1)
         a2.append(b2)
         a3.append(b3)
-    
-    degree_of_son = []
-    closeness_of_son = []
-    betweenness_of_son = []
-    for i in range(len(a1)):
-        degree_of_son.append(sum(a1[i]))
-        closeness_of_son.append(sum(a2[i]))
-        betweenness_of_son.append(sum(a3[i]))
+
     info_ = []
     for j in range(len(Name)):
         if Name[j] == name[n]: 
@@ -246,52 +236,40 @@ for n in range(len(name)):
     
     info2 = []
     for i in range(len(son_of_site)):
-        info1 = []
-        for j in range(len(son_of_site[i])):
-            info1.append(info.loc[son_of_site[i][j]-1])
+        info1 = [info.loc[son_of_site[i][j]-1] for j in range(len(son_of_site[i]))]
         info2.append(info1)
     
-    info51 = []
-    info61 = []
-    info52 = []
+    info41 = []
+    info42 = []
+    info43 = []
     for i in range(len(info2)):
         info31 = []
-        info41 = []
         info32 = []
+        info33 = []
         for j in range(len(info2[i])):
             for k in range(len(info2[i][j])):
                 info31.append(info2[i][j][k] * a1[i][j])
-                info41.append(info2[i][j][k] * a2[i][j])
-                info32.append(info2[i][j][k] * a3[i][j])
-        info51.append(info31)
-        info61.append(info41)
-        info52.append(info32)
+                info32.append(info2[i][j][k] * a2[i][j])
+                info33.append(info2[i][j][k] * a3[i][j])
+        info41.append(info31)
+        info42.append(info32)
+        info43.append(info33)
     
-    info7 = []
-    for i in range(len(info51)):
-        x1 = np.array(info51[i])
-        x2 = int(len(x1)/30)
-        x3 = np.reshape(x1, (x2,30))
-        info7.append(np.sum(x3, axis=0))
-
-    info8 = []
-    for i in range(len(info61)):
-        y1 = np.array(info61[i])
-        y2 = int(len(y1)/30)
-        y3 = np.reshape(y1, (y2,30))
-        info8.append(np.sum(y3, axis=0))
-        
-    info9 = []
-    for i in range(len(info52)):
-        x1 = np.array(info52[i])
-        x2 = int(len(x1)/30)
-        x3 = np.reshape(x1, (x2,30))
-        info9.append(np.sum(x3, axis=0))
+    info_DG = []
+    info_CL = []
+    info_BC = []
+    for i in range(len(info41)):
+        x1 = np.array(info41[i])
+        x2 = np.array(info42[i])
+        x3 = np.array(info43[i])
+        x = int(len(x1)/info.columns.size)
+        info_DG.append(np.sum(np.reshape(x1, (x,info.columns.size)), axis=0))
+        info_CL.append(np.sum(np.reshape(x2, (x,info.columns.size)), axis=0))
+        info_BC.append(np.sum(np.reshape(x3, (x,info.columns.size)), axis=0))
    
-    e=np.hstack((info7,info8,info9))
+    e=np.hstack((info_DG,info_CL,info_BC))
     df_e = pd.DataFrame(e)
     df_empty = pd.concat([df_empty,df_e],ignore_index=True)
-
 
 ########################################normalized to the range of [0,1]
 seq_len_sum = []
