@@ -1,6 +1,6 @@
 ## CNRBind
 
-A prediction method by fusing RNA sequence and structure information to identify small molecule-RNA binding sites. 
+CNRBind: Small molecule-RNA binding sites recognition via site significance from nucleotide and complex network information. 
 
 The RNA id, sequence and labels can be found in ./data_cache.
 The codes for CNRBind are available in ./predict.
