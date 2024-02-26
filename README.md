@@ -1,6 +1,4 @@
-## CNRBind
-
-CNRBind: Small molecule-RNA binding sites recognition via site significance from nucleotide and complex network information. 
+## CNRBind: Small molecule-RNA binding sites recognition via site significance from nucleotide and complex network information. 
 
 The RNA id, sequence and labels can be found in ./data_cache.
 The codes for CNRBind are available in ./predict.
