@@ -19,5 +19,3 @@ python predict.py TE18
 cd ./predict/
 python predict.py RB9
 ```
-### contact
-Kang Xiao: xiaokangneuq@163.com
